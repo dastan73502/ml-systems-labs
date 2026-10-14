@@ -17,3 +17,13 @@ python src/train_baseline.py
 python src/measure.py
 python src/budget.py
 ```
+
+## Lab 02
+
+```
+cd lab02
+python src/check_forward.py
+python src/grad_check.py
+python src/train.py
+python src/timing.py
+```

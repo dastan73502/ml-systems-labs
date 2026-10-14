@@ -1,0 +1,23 @@
+X_train (1257, 64)  X_test (540, 64)
+Y_train (1257, 10)  Y_test (540, 10)
+X range [0.00, 1.00]
+
+W = 16
+  W1: (64, 16)
+  b1: (16,)
+  W2: (16, 16)
+  b2: (16,)
+  W3: (16, 10)
+  b3: (10,)
+  output shape (32, 10), rows sum to 1: True
+  untrained loss 2.3026  (ln 10 = 2.3026)
+
+W = 64
+  W1: (64, 64)
+  b1: (64,)
+  W2: (64, 64)
+  b2: (64,)
+  W3: (64, 10)
+  b3: (10,)
+  output shape (32, 10), rows sum to 1: True
+  untrained loss 2.3026  (ln 10 = 2.3026)
