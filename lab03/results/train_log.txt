@@ -1,0 +1,18 @@
+MLP       epoch 1/5  train loss 0.4940  val loss 0.4112  val acc 0.8454
+MLP       epoch 2/5  train loss 0.3537  val loss 0.3600  val acc 0.8622
+MLP       epoch 3/5  train loss 0.3134  val loss 0.3540  val acc 0.8724
+MLP       epoch 4/5  train loss 0.2883  val loss 0.3373  val acc 0.8776
+MLP       epoch 5/5  train loss 0.2670  val loss 0.3287  val acc 0.8808
+MLP       test acc 0.8789  train time 73.6 s
+CNN       epoch 1/5  train loss 0.5284  val loss 0.3879  val acc 0.8628
+CNN       epoch 2/5  train loss 0.3428  val loss 0.3435  val acc 0.8754
+CNN       epoch 3/5  train loss 0.3031  val loss 0.3200  val acc 0.8828
+CNN       epoch 4/5  train loss 0.2799  val loss 0.3016  val acc 0.8894
+CNN       epoch 5/5  train loss 0.2598  val loss 0.2932  val acc 0.8906
+CNN       test acc 0.8956  train time 103.3 s
+Attention epoch 1/5  train loss 0.7773  val loss 0.5367  val acc 0.8064
+Attention epoch 2/5  train loss 0.4581  val loss 0.4667  val acc 0.8364
+Attention epoch 3/5  train loss 0.3941  val loss 0.4208  val acc 0.8484
+Attention epoch 4/5  train loss 0.3613  val loss 0.4117  val acc 0.8538
+Attention epoch 5/5  train loss 0.3368  val loss 0.3628  val acc 0.8708
+Attention test acc 0.8659  train time 101.4 s
