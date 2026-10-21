@@ -1,0 +1,29 @@
+{
+  "MLP": {
+    "params": 235146,
+    "hand_flops": 469504,
+    "thop_macs": 234752,
+    "thop_flops": 469504,
+    "flopcounter_flops": 469504,
+    "latency_b1_ms": 0.0950999999531632,
+    "latency_b128_ms": 0.25364999999055726
+  },
+  "CNN": {
+    "params": 20490,
+    "hand_flops": 2063488,
+    "thop_macs": 1031744,
+    "thop_flops": 2063488,
+    "flopcounter_flops": 2063488,
+    "latency_b1_ms": 0.22304999993139063,
+    "latency_b128_ms": 7.136299999956464
+  },
+  "Attention": {
+    "params": 71818,
+    "hand_flops": 2329856,
+    "thop_macs": 591488,
+    "thop_flops": 1182976,
+    "flopcounter_flops": 2198784,
+    "latency_b1_ms": 0.6762000000435364,
+    "latency_b128_ms": 3.423399999974208
+  }
+}
