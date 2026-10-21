@@ -27,3 +27,12 @@ python src/grad_check.py
 python src/train.py
 python src/timing.py
 ```
+
+## Lab 03
+
+```
+cd lab03
+python src/cost.py
+python src/train.py
+python src/plot.py
+```
