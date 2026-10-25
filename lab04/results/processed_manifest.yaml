@@ -1,0 +1,277 @@
+config:
+  seed: 42
+  source:
+    name: adult
+    version: 2
+    target_raw: class
+    target: income
+    positive_label: '>50K'
+  paths:
+    raw: data/raw/adult_raw.csv
+    processed_dir: data/processed
+    results: results
+  expected:
+    rows: 48842
+    columns: 15
+  split:
+    test_size: 0.3
+    stratify: true
+  cleaning:
+    numeric_impute: median
+    categorical_impute: most_frequent
+    clip_quantiles:
+    - 0.01
+    - 0.99
+    drop_train_duplicates: true
+  features:
+    derived:
+    - capital_net
+    - hours_per_age
+  baseline:
+    model: LogisticRegression
+    max_iter: 2000
+    C: 1.0
+  label_audit:
+    sample_size: 50
+  schema:
+    missing_token: '?'
+    columns:
+      age:
+        type: int
+        min: 17
+        max: 90
+      workclass:
+        type: category
+        allowed:
+        - Private
+        - Self-emp-not-inc
+        - Self-emp-inc
+        - Federal-gov
+        - Local-gov
+        - State-gov
+        - Without-pay
+        - Never-worked
+        - '?'
+      fnlwgt:
+        type: int
+      education:
+        type: category
+        allowed:
+        - Bachelors
+        - Some-college
+        - 11th
+        - HS-grad
+        - Prof-school
+        - Assoc-acdm
+        - Assoc-voc
+        - 9th
+        - 7th-8th
+        - 12th
+        - Masters
+        - 1st-4th
+        - 10th
+        - Doctorate
+        - 5th-6th
+        - Preschool
+        - '?'
+      education-num:
+        type: int
+        min: 1
+        max: 16
+      marital-status:
+        type: category
+        allowed:
+        - Married-civ-spouse
+        - Divorced
+        - Never-married
+        - Separated
+        - Widowed
+        - Married-spouse-absent
+        - Married-AF-spouse
+        - '?'
+      occupation:
+        type: category
+        allowed:
+        - Tech-support
+        - Craft-repair
+        - Other-service
+        - Sales
+        - Exec-managerial
+        - Prof-specialty
+        - Handlers-cleaners
+        - Machine-op-inspct
+        - Adm-clerical
+        - Farming-fishing
+        - Transport-moving
+        - Priv-house-serv
+        - Protective-serv
+        - Armed-Forces
+        - '?'
+      relationship:
+        type: category
+        allowed:
+        - Wife
+        - Own-child
+        - Husband
+        - Not-in-family
+        - Other-relative
+        - Unmarried
+        - '?'
+      race:
+        type: category
+        allowed:
+        - White
+        - Asian-Pac-Islander
+        - Amer-Indian-Eskimo
+        - Other
+        - Black
+        - '?'
+      sex:
+        type: category
+        allowed:
+        - Female
+        - Male
+        - '?'
+      capital-gain:
+        type: int
+        min: 0
+        max: 99999
+      capital-loss:
+        type: int
+        min: 0
+        max: 4356
+      hours-per-week:
+        type: int
+        min: 1
+        max: 99
+      native-country:
+        type: category
+        allowed:
+        - United-States
+        - Cambodia
+        - England
+        - Puerto-Rico
+        - Canada
+        - Germany
+        - Outlying-US(Guam-USVI-etc)
+        - India
+        - Japan
+        - Greece
+        - South
+        - China
+        - Cuba
+        - Iran
+        - Honduras
+        - Philippines
+        - Italy
+        - Poland
+        - Jamaica
+        - Vietnam
+        - Mexico
+        - Portugal
+        - Ireland
+        - France
+        - Dominican-Republic
+        - Laos
+        - Ecuador
+        - Taiwan
+        - Haiti
+        - Columbia
+        - Hungary
+        - Guatemala
+        - Nicaragua
+        - Scotland
+        - Thailand
+        - Yugoslavia
+        - El-Salvador
+        - Trinadad&Tobago
+        - Peru
+        - Hong
+        - Holand-Netherlands
+        - '?'
+      income:
+        type: category
+        allowed:
+        - <=50K
+        - '>50K'
+  education_num_map:
+    Preschool: 1
+    1st-4th: 2
+    5th-6th: 3
+    7th-8th: 4
+    9th: 5
+    10th: 6
+    11th: 7
+    12th: 8
+    HS-grad: 9
+    Some-college: 10
+    Assoc-voc: 11
+    Assoc-acdm: 12
+    Bachelors: 13
+    Masters: 14
+    Prof-school: 15
+    Doctorate: 16
+raw:
+  origin: openml:adult/v2
+  rows: 48842
+  columns: 15
+  snapshot: data\raw\adult_raw.csv
+  sha256: d273d956c28eba72241f69dcbb78e37e93862248503a1873fb44b9fc2a6ae00b
+processed:
+  train:
+    path: data\processed\train.csv
+    rows: 34165
+    columns: 108
+    sha256: ea81beb5d36f0b0176e52c0766fabcf35c4dda9d4a8d9838a0cbebe63c9a6a16
+  test:
+    path: data\processed\test.csv
+    rows: 14653
+    columns: 108
+    sha256: 060df86012035d2607c79171868764b05ea4d48f45ed482b36dbc26da3673de4
+  combined_sha256: da973bfc97ceb078291109d4f2a0dc8ee9f16d634367743ab51bca7b24905f43
+split:
+  train_before_dedup: 34189
+  train_duplicates_dropped: 24
+  train: 34165
+  test: 14653
+  test_rows_also_in_train: 24
+clip_bounds_from_train:
+  age:
+  - 17.0
+  - 74.0
+  fnlwgt:
+  - 27035.2
+  - 509629.0
+  education-num:
+  - 3.0
+  - 16.0
+  capital-gain:
+  - 0.0
+  - 15024.0
+  capital-loss:
+  - 0.0
+  - 1980.0
+  hours-per-week:
+  - 8.0
+  - 80.0
+validation:
+  checks: 45
+  failed: 0
+  rows_dropped: 0
+label_audit:
+  duplicate_feature_rows: 111
+  duplicate_feature_groups: 54
+  conflicting_groups: 5
+  conflicting_rows: 10
+metrics:
+  without_derived:
+    accuracy: 0.8539548215382515
+    f1: 0.6601016518424396
+  with_derived:
+    accuracy: 0.8577765645260357
+    f1: 0.6696258719086874
+environment:
+  python: 3.11.8
+  pandas: 3.1.0
+  numpy: 2.4.6
+  scikit-learn: 1.9.1

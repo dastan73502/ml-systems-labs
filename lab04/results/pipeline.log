@@ -1,0 +1,30 @@
+2026-10-25 23:49:14,351 INFO step 1-2: ingestion
+2026-10-25 23:49:14,525 INFO ingest: fetch_openml(name='adult', version=2, as_frame=True)
+2026-10-25 23:49:20,311 INFO ingest: source=openml:adult/v2 rows=48842 columns=15
+2026-10-25 23:49:20,461 INFO ingest: raw snapshot data\raw\adult_raw.csv sha256=d273d956c28eba72241f69dcbb78e37e93862248503a1873fb44b9fc2a6ae00b
+2026-10-25 23:49:20,461 INFO step 3: validation
+2026-10-25 23:49:20,627 INFO validate: missing     workclass                '?' allowed, counted                     2799 INFO
+2026-10-25 23:49:20,627 INFO validate: missing     education                '?' allowed, counted                        0 INFO
+2026-10-25 23:49:20,627 INFO validate: missing     marital-status           '?' allowed, counted                        0 INFO
+2026-10-25 23:49:20,628 INFO validate: missing     occupation               '?' allowed, counted                     2809 INFO
+2026-10-25 23:49:20,628 INFO validate: missing     relationship             '?' allowed, counted                        0 INFO
+2026-10-25 23:49:20,628 INFO validate: missing     race                     '?' allowed, counted                        0 INFO
+2026-10-25 23:49:20,628 INFO validate: missing     sex                      '?' allowed, counted                        0 INFO
+2026-10-25 23:49:20,628 INFO validate: missing     native-country           '?' allowed, counted                      857 INFO
+2026-10-25 23:49:20,628 INFO validate: duplicates  *                        exact duplicate rows (all 15 columns)      52 INFO
+2026-10-25 23:49:20,628 INFO validate: duplicates  *                        duplicate feature rows (14 features)       57 INFO
+2026-10-25 23:49:20,628 INFO validate: 45 checks, 0 failed, rows kept 48842/48842
+2026-10-25 23:49:20,628 INFO step 4: stratified split before cleaning
+2026-10-25 23:49:20,707 INFO split: train=34189 test=14653 positive rate train=0.2393 test=0.2393
+2026-10-25 23:49:20,733 INFO dedup: dropped 24 exact duplicates from train, train=34165; test untouched=14653
+2026-10-25 23:49:20,881 INFO dedup: 24 test rows also appear in train (kept, reported)
+2026-10-25 23:49:20,991 INFO transform: fitted on train only, saved results\preprocessor.joblib
+2026-10-25 23:49:24,817 INFO transform: processed train (34165, 108), test (14653, 108)
+2026-10-25 23:49:24,817 INFO step 5: derived features ablation
+2026-10-25 23:49:25,749 INFO baseline without_derived  accuracy=0.8540 f1=0.6601
+2026-10-25 23:49:25,749 INFO baseline with_derived     accuracy=0.8578 f1=0.6696
+2026-10-25 23:49:25,751 INFO step 6: label-quality audit
+2026-10-25 23:49:28,810 INFO audit: conflicting groups=5 rows=10; sample flagged=0 impossible=0
+2026-10-25 23:49:28,810 INFO step 7: hashing, manifest, data card
+2026-10-25 23:49:28,846 INFO hash: processed sha256=da973bfc97ceb078291109d4f2a0dc8ee9f16d634367743ab51bca7b24905f43
+2026-10-25 23:49:28,882 INFO done: data_card.md, results/processed_manifest.yaml

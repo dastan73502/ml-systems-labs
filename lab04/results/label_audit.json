@@ -1,0 +1,46 @@
+{
+  "duplicate_conflict_audit": {
+    "duplicate_feature_rows": 111,
+    "duplicate_feature_groups": 54,
+    "conflicting_groups": 5,
+    "conflicting_rows": 10
+  },
+  "sample": {
+    "size": 50,
+    "seed": 42,
+    "flagged_rows": 0,
+    "impossible_rows": 0
+  },
+  "rule_counts_sample": {
+    "age out of 17-90": 0,
+    "hours-per-week out of 1-99": 0,
+    "capital-gain out of 0-99999": 0,
+    "capital-loss out of 0-4356": 0,
+    "education-num != code of education": 0,
+    "Husband but sex=Female": 0,
+    "Wife but sex=Male": 0,
+    "Husband/Wife but not married": 0,
+    "unknown category value": 0,
+    "capital-gain and capital-loss both > 0": 0,
+    "Never-worked but hours-per-week > 0": 0,
+    "age < 22 with Masters/Prof-school/Doctorate": 0,
+    "hours-per-week = 99": 0,
+    "capital-gain = 99999 (top-code)": 0
+  },
+  "rule_counts_full_dataset": {
+    "age out of 17-90": 0,
+    "hours-per-week out of 1-99": 0,
+    "capital-gain out of 0-99999": 0,
+    "capital-loss out of 0-4356": 0,
+    "education-num != code of education": 0,
+    "Husband but sex=Female": 1,
+    "Wife but sex=Male": 3,
+    "Husband/Wife but not married": 0,
+    "unknown category value": 0,
+    "capital-gain and capital-loss both > 0": 0,
+    "Never-worked but hours-per-week > 0": 10,
+    "age < 22 with Masters/Prof-school/Doctorate": 3,
+    "hours-per-week = 99": 137,
+    "capital-gain = 99999 (top-code)": 244
+  }
+}

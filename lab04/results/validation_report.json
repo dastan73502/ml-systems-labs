@@ -1,0 +1,444 @@
+{
+  "rows_in": 48842,
+  "rows_out": 48842,
+  "rows_dropped": 0,
+  "checks": 45,
+  "failed": 0,
+  "results": [
+    {
+      "check": "columns",
+      "column": "*",
+      "rule": "exact schema columns",
+      "violations": 0,
+      "status": "PASS",
+      "example_rows": [],
+      "action": "missing=[] extra=[]"
+    },
+    {
+      "check": "type",
+      "column": "age",
+      "rule": "numeric",
+      "violations": 0,
+      "status": "PASS",
+      "example_rows": [],
+      "action": "none"
+    },
+    {
+      "check": "type",
+      "column": "age",
+      "rule": "integer-valued",
+      "violations": 0,
+      "status": "PASS",
+      "example_rows": [],
+      "action": "none"
+    },
+    {
+      "check": "missing",
+      "column": "age",
+      "rule": "no nulls",
+      "violations": 0,
+      "status": "PASS",
+      "example_rows": [],
+      "action": "none"
+    },
+    {
+      "check": "range",
+      "column": "age",
+      "rule": "17 <= x <= 90",
+      "violations": 0,
+      "status": "PASS",
+      "example_rows": [],
+      "action": "none"
+    },
+    {
+      "check": "category",
+      "column": "workclass",
+      "rule": "in 9 allowed values",
+      "violations": 0,
+      "status": "PASS",
+      "example_rows": [],
+      "action": "none"
+    },
+    {
+      "check": "missing",
+      "column": "workclass",
+      "rule": "'?' allowed, counted",
+      "violations": 2799,
+      "status": "INFO",
+      "example_rows": [
+        4,
+        6,
+        13,
+        22,
+        35
+      ],
+      "action": "kept, imputed after split"
+    },
+    {
+      "check": "type",
+      "column": "fnlwgt",
+      "rule": "numeric",
+      "violations": 0,
+      "status": "PASS",
+      "example_rows": [],
+      "action": "none"
+    },
+    {
+      "check": "type",
+      "column": "fnlwgt",
+      "rule": "integer-valued",
+      "violations": 0,
+      "status": "PASS",
+      "example_rows": [],
+      "action": "none"
+    },
+    {
+      "check": "missing",
+      "column": "fnlwgt",
+      "rule": "no nulls",
+      "violations": 0,
+      "status": "PASS",
+      "example_rows": [],
+      "action": "none"
+    },
+    {
+      "check": "category",
+      "column": "education",
+      "rule": "in 17 allowed values",
+      "violations": 0,
+      "status": "PASS",
+      "example_rows": [],
+      "action": "none"
+    },
+    {
+      "check": "missing",
+      "column": "education",
+      "rule": "'?' allowed, counted",
+      "violations": 0,
+      "status": "INFO",
+      "example_rows": [],
+      "action": "kept, imputed after split"
+    },
+    {
+      "check": "type",
+      "column": "education-num",
+      "rule": "numeric",
+      "violations": 0,
+      "status": "PASS",
+      "example_rows": [],
+      "action": "none"
+    },
+    {
+      "check": "type",
+      "column": "education-num",
+      "rule": "integer-valued",
+      "violations": 0,
+      "status": "PASS",
+      "example_rows": [],
+      "action": "none"
+    },
+    {
+      "check": "missing",
+      "column": "education-num",
+      "rule": "no nulls",
+      "violations": 0,
+      "status": "PASS",
+      "example_rows": [],
+      "action": "none"
+    },
+    {
+      "check": "range",
+      "column": "education-num",
+      "rule": "1 <= x <= 16",
+      "violations": 0,
+      "status": "PASS",
+      "example_rows": [],
+      "action": "none"
+    },
+    {
+      "check": "category",
+      "column": "marital-status",
+      "rule": "in 8 allowed values",
+      "violations": 0,
+      "status": "PASS",
+      "example_rows": [],
+      "action": "none"
+    },
+    {
+      "check": "missing",
+      "column": "marital-status",
+      "rule": "'?' allowed, counted",
+      "violations": 0,
+      "status": "INFO",
+      "example_rows": [],
+      "action": "kept, imputed after split"
+    },
+    {
+      "check": "category",
+      "column": "occupation",
+      "rule": "in 15 allowed values",
+      "violations": 0,
+      "status": "PASS",
+      "example_rows": [],
+      "action": "none"
+    },
+    {
+      "check": "missing",
+      "column": "occupation",
+      "rule": "'?' allowed, counted",
+      "violations": 2809,
+      "status": "INFO",
+      "example_rows": [
+        4,
+        6,
+        13,
+        22,
+        35
+      ],
+      "action": "kept, imputed after split"
+    },
+    {
+      "check": "category",
+      "column": "relationship",
+      "rule": "in 7 allowed values",
+      "violations": 0,
+      "status": "PASS",
+      "example_rows": [],
+      "action": "none"
+    },
+    {
+      "check": "missing",
+      "column": "relationship",
+      "rule": "'?' allowed, counted",
+      "violations": 0,
+      "status": "INFO",
+      "example_rows": [],
+      "action": "kept, imputed after split"
+    },
+    {
+      "check": "category",
+      "column": "race",
+      "rule": "in 6 allowed values",
+      "violations": 0,
+      "status": "PASS",
+      "example_rows": [],
+      "action": "none"
+    },
+    {
+      "check": "missing",
+      "column": "race",
+      "rule": "'?' allowed, counted",
+      "violations": 0,
+      "status": "INFO",
+      "example_rows": [],
+      "action": "kept, imputed after split"
+    },
+    {
+      "check": "category",
+      "column": "sex",
+      "rule": "in 3 allowed values",
+      "violations": 0,
+      "status": "PASS",
+      "example_rows": [],
+      "action": "none"
+    },
+    {
+      "check": "missing",
+      "column": "sex",
+      "rule": "'?' allowed, counted",
+      "violations": 0,
+      "status": "INFO",
+      "example_rows": [],
+      "action": "kept, imputed after split"
+    },
+    {
+      "check": "type",
+      "column": "capital-gain",
+      "rule": "numeric",
+      "violations": 0,
+      "status": "PASS",
+      "example_rows": [],
+      "action": "none"
+    },
+    {
+      "check": "type",
+      "column": "capital-gain",
+      "rule": "integer-valued",
+      "violations": 0,
+      "status": "PASS",
+      "example_rows": [],
+      "action": "none"
+    },
+    {
+      "check": "missing",
+      "column": "capital-gain",
+      "rule": "no nulls",
+      "violations": 0,
+      "status": "PASS",
+      "example_rows": [],
+      "action": "none"
+    },
+    {
+      "check": "range",
+      "column": "capital-gain",
+      "rule": "0 <= x <= 99999",
+      "violations": 0,
+      "status": "PASS",
+      "example_rows": [],
+      "action": "none"
+    },
+    {
+      "check": "type",
+      "column": "capital-loss",
+      "rule": "numeric",
+      "violations": 0,
+      "status": "PASS",
+      "example_rows": [],
+      "action": "none"
+    },
+    {
+      "check": "type",
+      "column": "capital-loss",
+      "rule": "integer-valued",
+      "violations": 0,
+      "status": "PASS",
+      "example_rows": [],
+      "action": "none"
+    },
+    {
+      "check": "missing",
+      "column": "capital-loss",
+      "rule": "no nulls",
+      "violations": 0,
+      "status": "PASS",
+      "example_rows": [],
+      "action": "none"
+    },
+    {
+      "check": "range",
+      "column": "capital-loss",
+      "rule": "0 <= x <= 4356",
+      "violations": 0,
+      "status": "PASS",
+      "example_rows": [],
+      "action": "none"
+    },
+    {
+      "check": "type",
+      "column": "hours-per-week",
+      "rule": "numeric",
+      "violations": 0,
+      "status": "PASS",
+      "example_rows": [],
+      "action": "none"
+    },
+    {
+      "check": "type",
+      "column": "hours-per-week",
+      "rule": "integer-valued",
+      "violations": 0,
+      "status": "PASS",
+      "example_rows": [],
+      "action": "none"
+    },
+    {
+      "check": "missing",
+      "column": "hours-per-week",
+      "rule": "no nulls",
+      "violations": 0,
+      "status": "PASS",
+      "example_rows": [],
+      "action": "none"
+    },
+    {
+      "check": "range",
+      "column": "hours-per-week",
+      "rule": "1 <= x <= 99",
+      "violations": 0,
+      "status": "PASS",
+      "example_rows": [],
+      "action": "none"
+    },
+    {
+      "check": "category",
+      "column": "native-country",
+      "rule": "in 42 allowed values",
+      "violations": 0,
+      "status": "PASS",
+      "example_rows": [],
+      "action": "none"
+    },
+    {
+      "check": "missing",
+      "column": "native-country",
+      "rule": "'?' allowed, counted",
+      "violations": 857,
+      "status": "INFO",
+      "example_rows": [
+        19,
+        65,
+        83,
+        188,
+        253
+      ],
+      "action": "kept, imputed after split"
+    },
+    {
+      "check": "category",
+      "column": "income",
+      "rule": "in 2 allowed values",
+      "violations": 0,
+      "status": "PASS",
+      "example_rows": [],
+      "action": "none"
+    },
+    {
+      "check": "missing",
+      "column": "income",
+      "rule": "no missing label",
+      "violations": 0,
+      "status": "PASS",
+      "example_rows": [],
+      "action": "none"
+    },
+    {
+      "check": "consistency",
+      "column": "education/education-num",
+      "rule": "education-num matches education",
+      "violations": 0,
+      "status": "PASS",
+      "example_rows": [],
+      "action": "none"
+    },
+    {
+      "check": "duplicates",
+      "column": "*",
+      "rule": "exact duplicate rows (all 15 columns)",
+      "violations": 52,
+      "status": "INFO",
+      "example_rows": [
+        864,
+        11189,
+        11212,
+        13848,
+        15960
+      ],
+      "action": "kept in raw; dropped from train split only"
+    },
+    {
+      "check": "duplicates",
+      "column": "*",
+      "rule": "duplicate feature rows (14 features)",
+      "violations": 57,
+      "status": "INFO",
+      "example_rows": [
+        864,
+        11189,
+        11212,
+        13848,
+        15960
+      ],
+      "action": "see label audit for conflicting labels"
+    }
+  ]
+}
