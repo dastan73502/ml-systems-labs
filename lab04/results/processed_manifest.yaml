@@ -215,7 +215,7 @@ raw:
   origin: openml:adult/v2
   rows: 48842
   columns: 15
-  snapshot: data\raw\adult_raw.csv
+  snapshot: data/raw/adult_raw.csv
   sha256: d273d956c28eba72241f69dcbb78e37e93862248503a1873fb44b9fc2a6ae00b
 processed:
   train:

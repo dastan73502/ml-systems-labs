@@ -44,4 +44,4 @@ def ingest(cfg, raw_csv=None):
     df.to_csv(out, index=False)
     raw_hash = sha256_file(out)
     log.info("ingest: raw snapshot %s sha256=%s", out, raw_hash)
-    return df, {"origin": origin, "rows": rows, "columns": cols, "snapshot": str(out), "sha256": raw_hash}
+    return df, {"origin": origin, "rows": rows, "columns": cols, "snapshot": Path(out).as_posix(), "sha256": raw_hash}

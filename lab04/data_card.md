@@ -4,7 +4,7 @@
 - Dataset: Adult / Census Income, extracted by Barry Becker from the 1994 US Census Bureau database; donated to UCI by Ronny Kohavi and Barry Becker (1996).
 - Loaded with `fetch_openml(name='adult', version=2, as_frame=True)` (OpenML data id 1590), which merges the original `adult.data` and `adult.test` files.
 - Ingestion origin for this run: `openml:adult/v2`
-- Raw snapshot: `data\raw\adult_raw.csv`, SHA256 `d273d956c28eba72241f69dcbb78e37e93862248503a1873fb44b9fc2a6ae00b`
+- Raw snapshot: `data/raw/adult_raw.csv`, SHA256 `d273d956c28eba72241f69dcbb78e37e93862248503a1873fb44b9fc2a6ae00b`
 - Citation: Kohavi, R. (1996). Scaling Up the Accuracy of Naive-Bayes Classifiers: a Decision-Tree Hybrid. KDD-96.
 
 ## License

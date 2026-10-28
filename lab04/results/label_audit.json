@@ -42,5 +42,11 @@
     "age < 22 with Masters/Prof-school/Doctorate": 3,
     "hours-per-week = 99": 137,
     "capital-gain = 99999 (top-code)": 244
+  },
+  "manual_review": {
+    "reviewed": 50,
+    "ok": 47,
+    "suspicious": 3,
+    "impossible": 0
   }
 }

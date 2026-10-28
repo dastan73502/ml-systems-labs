@@ -51,6 +51,27 @@ def check_rows(df, rules):
     return flags
 
 
+def load_verdicts(path, row_ids):
+    if not Path(path).exists():
+        return [""] * len(row_ids)
+    old = pd.read_csv(path, dtype={"manual_verdict": str}, keep_default_na=False)
+    if "manual_verdict" not in old.columns:
+        return [""] * len(row_ids)
+    saved = dict(zip(old["row_id"], old["manual_verdict"]))
+    return [saved.get(i, "") for i in row_ids]
+
+
+def manual_summary(sample):
+    v = sample["manual_verdict"].fillna("").str.strip()
+    done = v != ""
+    return {
+        "reviewed": int(done.sum()),
+        "ok": int(v.str.startswith("ok").sum()),
+        "suspicious": int(v.str.startswith("suspicious").sum()),
+        "impossible": int(v.str.startswith("impossible").sum()),
+    }
+
+
 def label_audit(df, cfg):
     out = Path(cfg["paths"]["results"])
     out.mkdir(parents=True, exist_ok=True)
@@ -65,8 +86,9 @@ def label_audit(df, cfg):
     sample = df.sample(n=n, random_state=seed).copy()
     sample.insert(0, "row_id", sample.index)
     sample["auto_flags"] = check_rows(sample, rules)
-    sample["manual_verdict"] = ""
+    sample["manual_verdict"] = load_verdicts(out / "label_audit_sample.csv", sample["row_id"])
     sample.to_csv(out / "label_audit_sample.csv", index=False)
+    manual = manual_summary(sample)
 
     full_counts = {}
     sample_counts = {}
@@ -80,6 +102,7 @@ def label_audit(df, cfg):
     report = {
         "duplicate_conflict_audit": conflicts,
         "sample": {"size": n, "seed": seed, "flagged_rows": int(len(flagged)), "impossible_rows": impossible_in_sample},
+        "manual_review": manual,
         "rule_counts_sample": sample_counts,
         "rule_counts_full_dataset": full_counts,
     }
@@ -98,7 +121,7 @@ def label_audit(df, cfg):
         f"## Data-dictionary re-check of {n} random rows (seed {seed})",
         "",
         f"Rows with any flag: {len(flagged)} / {n}. Rows with an impossible value: {impossible_in_sample} / {n}.",
-        "All 50 rows are in `label_audit_sample.csv` with an `auto_flags` column and an empty `manual_verdict` column for the manual pass.",
+        f"All {n} rows are in `label_audit_sample.csv` with an `auto_flags` column (rule check) and a `manual_verdict` column (manual check against the data dictionary).",
         "",
         "| severity | rule | in sample (50) | in full dataset |",
         "|---|---|---:|---:|",
@@ -109,6 +132,22 @@ def label_audit(df, cfg):
         lines += ["", "### Flagged sample rows", "", "| row_id | flags |", "|---:|---|"]
         for _, r in flagged.iterrows():
             lines.append(f"| {r['row_id']} | {r['auto_flags']} |")
+    lines += ["", "## Manual review of the 50-row sample", ""]
+    if manual["reviewed"] == 0:
+        lines.append("Not done yet: fill `manual_verdict` in `label_audit_sample.csv` and rerun.")
+    else:
+        lines.append(
+            f"Reviewed: {manual['reviewed']} / {n}. OK: {manual['ok']}. Suspicious: {manual['suspicious']}. "
+            f"Impossible: {manual['impossible']}. All labels are plausible for their feature values."
+            if manual["impossible"] == 0 else
+            f"Reviewed: {manual['reviewed']} / {n}. OK: {manual['ok']}. Suspicious: {manual['suspicious']}. "
+            f"Impossible: {manual['impossible']}."
+        )
+        notes = sample[sample["manual_verdict"].str.startswith(("suspicious", "impossible"))]
+        if len(notes):
+            lines += ["", "| row_id | verdict |", "|---:|---|"]
+            for _, r in notes.iterrows():
+                lines.append(f"| {r['row_id']} | {r['manual_verdict']} |")
     (out / "label_audit.md").write_text("\n".join(lines) + "\n")
     log.info("audit: conflicting groups=%d rows=%d; sample flagged=%d impossible=%d",
              conflicts["conflicting_groups"], conflicts["conflicting_rows"], len(flagged), impossible_in_sample)
